@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- AUTHORS -->
+    
+    <bean id="author1" class="com.epsilon.bookshelf.Author">
+    	<constructor-arg value="11"></constructor-arg>
+    	<constructor-arg value="JK Rowling"></constructor-arg>
+    </bean>
+   
+    <bean id="author2" class="com.epsilon.bookshelf.Author">
+    	<constructor-arg value="22"></constructor-arg>
+    	<constructor-arg value="George Orwell"></constructor-arg>
+    </bean>
+    
+     <bean id="author3" class="com.epsilon.bookshelf.Author">
+    	<constructor-arg value="33"></constructor-arg>
+    	<constructor-arg value="RR Martin"></constructor-arg>
+    </bean>
+    
+     <bean id="author4" class="com.epsilon.bookshelf.Author">
+    	<constructor-arg value="44"></constructor-arg>
+    	<constructor-arg value="Stephen King"></constructor-arg>
+    </bean> 
+    
+      <!-- PUBLISHERS -->
+      
+      <bean id='publisher1' class="com.epsilon.bookshelf.Publisher">
+      	<constructor-arg value="New York Publications"></constructor-arg>
+      	<constructor-arg value="USA"></constructor-arg>
+      	<constructor-arg value="111"></constructor-arg>
+      </bean>
+       <bean id='publisher2' class="com.epsilon.bookshelf.Publisher">
+      	<constructor-arg value="Mumbai Publications"></constructor-arg>
+      	<constructor-arg value="India"></constructor-arg>
+      	<constructor-arg value="222"></constructor-arg>
+      </bean>
+    
+   
+    <!-- BOOKS -->
+    <bean id="book1" class="com.epsilon.bookshelf.Book">
+    	<constructor-arg value="1111"></constructor-arg>
+    	<constructor-arg value="Harry Potter and the Goblet of Fire"></constructor-arg>
+    	<constructor-arg><ref bean="publisher1"/></constructor-arg>
+    	<constructor-arg><ref bean="author1"/></constructor-arg>
+    </bean>
+    
+      <bean id="book2" class="com.epsilon.bookshelf.Book">
+    	<constructor-arg value="2222"></constructor-arg>
+    	<constructor-arg value="Harry Potter and the Half Blood Prince"></constructor-arg>
+    	<constructor-arg><ref bean="publisher1"/></constructor-arg>
+    	<constructor-arg><ref bean="author1"/></constructor-arg>
+    </bean>
+    
+      <bean id="book3" class="com.epsilon.bookshelf.Book">
+    	<constructor-arg value="3333"></constructor-arg>
+    	<constructor-arg value="Animal Farm"></constructor-arg>
+    	<constructor-arg><ref bean="publisher1"/></constructor-arg>
+    	<constructor-arg><ref bean="author2"/></constructor-arg>
+    </bean>
+    
+      <bean id="book4" class="com.epsilon.bookshelf.Book">
+    	<constructor-arg value="4444"></constructor-arg>
+    	<constructor-arg value="A Song of Fire and Ice"></constructor-arg>
+    	<constructor-arg><ref bean="publisher2"/></constructor-arg>
+    	<constructor-arg><ref bean="author3"/></constructor-arg>
+    </bean>
+    
+      <bean id="book5" class="com.epsilon.bookshelf.Book">
+    	<constructor-arg value="5555"></constructor-arg>
+    	<constructor-arg value="The Shinning"></constructor-arg>
+    	<constructor-arg><ref bean="publisher2"/></constructor-arg>
+    	<constructor-arg><ref bean="author4"/></constructor-arg>
+    </bean>
+    
+    
+    <!-- CUSTOMER -->
+    <bean id="customer1" class="com.epsilon.bookshelf.Customer">
+    	<constructor-arg value="11111"></constructor-arg>
+    	<constructor-arg value="Ayush Choubey"></constructor-arg>
+    </bean>
+    <!-- ORDER-->
+
+	<bean id="order1" class="com.epsilon.bookshelf.Order">
+	<constructor-arg value="111111"></constructor-arg>
+	<constructor-arg><ref bean="customer1"/></constructor-arg>
+	<constructor-arg>
+		<list>
+			<ref bean="book1"/>
+			<ref bean="book2"/>
+			<ref bean="book3"/>
+		</list>
+	</constructor-arg>
+	</bean>    
+</beans>
