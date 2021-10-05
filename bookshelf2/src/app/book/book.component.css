@@ -1,0 +1,13 @@
+.book-img>img{
+    max-width: 200px;
+    height: auto;
+}
+.book-info{
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    border: 2px solid rgb(73, 70, 238);
+    border-radius: 10pt;
+   margin: 10px;
+   padding: 5px;
+}
